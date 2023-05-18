@@ -54,9 +54,9 @@
           <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#menu">Menu</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#chefs">Chefs</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          {{-- <li><a href="#events">Events</a></li> --}}
+          {{-- <li><a href="#chefs">Chefs</a></li> --}}
+          {{-- <li><a href="#gallery">Gallery</a></li> --}}
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -78,7 +78,7 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-login" href="#book-a-table">Login</a>
+      <a class="btn-login" href="#login">Login</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -93,7 +93,7 @@
           <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
           <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
+            <a href="#login" class="btn-login">Login</a>
             <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
@@ -290,7 +290,7 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="/menu"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Magnam Tiste</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -1054,7 +1054,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>GreenPlates</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
