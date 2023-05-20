@@ -71,7 +71,10 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-login" href="#login">Login</a>
+      <div>
+        <a class="btn-login" href={{ route('register') }}>Register</a>
+        <a class="btn-login" href={{ route('login') }}>Login</a>
+      </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -86,7 +89,7 @@
           <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
           <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#login" class="btn-login">Login</a>
+            <a href={{ route('login') }} class="btn-login">Login</a>
             <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
