@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/menu', [ProdukController::class, 'starter']);
+// Route::get('/menu', [ProdukController::class, 'lunch']);
+// Route::get('/menu', [ProdukController::class, 'breakfast']);
+// Route::get('/menu', [ProdukController::class, 'dinner']);
 
 require __DIR__.'/auth.php';
