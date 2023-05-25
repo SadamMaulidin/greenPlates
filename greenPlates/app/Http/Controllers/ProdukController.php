@@ -10,35 +10,21 @@ class ProdukController extends Controller
     public function index()
     {
         $data_produk=Produk::all();
-        // return $data_produk; 
-        return view('menu', compact('data_produk'));
-    }
-
-    public function starter()
-    {
         $starter=Produk::where('id_kategori', 1)->get();
-        // return $data_produk; 
-        return view('menu', compact('starter'));
-    }
-
-    public function breakfast()
-    {
         $breakfast=Produk::where('id_kategori',2)->get();
-        // return $data_produk; 
-        return view('menu', compact('breakfast'));
-    }
-    
-    public function lunch()
-    {
         $lunch=Produk::where('id_kategori',3)->get();
-        // return $data_produk; 
-        return view('menu', compact('lunch'));
-    }
-    
-    public function dinner()
-    {
         $dinner=Produk::where('id_kategori',4)->get();
         // return $data_produk; 
-        return view('menu', compact('dinner'));
+        return view('menu', compact('data_produk', 'starter', 'breakfast', 'lunch', 'dinner'));
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Perform the search query using the $query parameter
+        $results = Product::where('nama_produk', 'like', '%' . $query . '%')->get();
+
+        return view('menu', compact('results'));
     }
 }

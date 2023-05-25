@@ -41,25 +41,37 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          {{-- <li><a href="#menu">Menu</a></li> --}}
+          <li><a href="/dashboard">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/menu">Menu</a></li>
           {{-- <li><a href="#events">Events</a></li> --}}
           {{-- <li><a href="#chefs">Chefs</a></li> --}}
           {{-- <li><a href="#gallery">Gallery</a></li> --}}
-          <li class="dropdown"><a href="#menu"><span>Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          {{-- <li class="dropdown"><a><span>Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#menu-starters">Starters</a></li>
-              <li><a href="#menu-breakfast">Breakfast</a></li>
+              <li><a data-bs-target="#menu-breakfast">Breakfast</a></li>
               <li><a href="#menu-lunch">Lunch</a></li>
               <li><a href="#menu-dinner">Dinner</a></li>
             </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          </li> --}}
+          <li><a href="/contact">Contact</a></li>
+          <x-dropdown-link :href="route('profile.edit')">
+            {{ __('Profile') }}
+          </x-dropdown-link>
+          <li><form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <x-dropdown-link :href="route('logout')"
+                    onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </x-dropdown-link>
+        </form></li>
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-login" href="/login">Login</a>
+      {{-- <a class="btn-login" href="/login">Login</a> --}}
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -75,10 +87,35 @@
         <p>Check Our <span> Menu</span></p>
       </div>
 
+      {{-- <div class="s130">
+        <form action="{{ route('search') }}" method="GET">
+          <div class="inner-form">
+            <div class="input-field first-wrap">
+              <div class="svg-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </div>
+              <input id="search" type="text" placeholder="What are you looking for?" />
+            </div>
+            <div class="input-field second-wrap">
+              <button class="btn-search" type="button">SEARCH</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      </div> --}}
+
       <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
         <li class="nav-item">
-          <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+          <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-all">
+            <h4>All</h4>
+          </a>
+        </li><!-- End tab nav item -->
+        
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters">
             <h4>Starters</h4>
           </a>
         </li><!-- End tab nav item -->
@@ -104,7 +141,32 @@
 
       <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
 
-        <div class="tab-pane fade active show" id="menu-starters">
+        <div class="tab-pane fade active show" id="menu-all">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>All</h3>
+          </div>
+
+          <div class="row gy-5">
+
+            @foreach ($data_produk as $item)
+              <div class="col-lg-4 menu-item">
+                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <h4>{{$item['nama_produk']}}</h4>
+                <p class="ingredients menu-desk">
+                  {{$item['desk_produk']}}
+                </p>
+                <p class="price">
+                  Rp. {{ number_format($item['harga'], 2, ',', '.') }}
+                </p>
+              </div>
+            @endforeach<!-- Menu Item -->
+
+          </div>
+        </div><!-- End Starter Menu Content -->
+
+        <div class="tab-pane fade" id="menu-starters">
 
           <div class="tab-header text-center">
             <p>Menu</p>
@@ -117,11 +179,11 @@
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
-                <p class="ingredients">
+                <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
                 </p>
                 <p class="price">
-                  Rp. {{$item['harga']}},00
+                  Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
               </div>
             @endforeach<!-- Menu Item -->
@@ -138,15 +200,15 @@
 
           <div class="row gy-5">
 
-            @foreach ($starter as $item)
+            @foreach ($breakfast as $item)
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
-                <p class="ingredients">
+                <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
                 </p>
                 <p class="price">
-                  Rp. {{$item['harga']}},00
+                  Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
               </div>
             @endforeach<!-- Menu Item -->
@@ -163,15 +225,15 @@
 
           <div class="row gy-5">
 
-            @foreach ($starter as $item)
+            @foreach ($lunch as $item)
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
-                <p class="ingredients">
+                <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
                 </p>
                 <p class="price">
-                  Rp. {{$item['harga']}},00
+                  Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
               </div>
             @endforeach<!-- Menu Item -->
@@ -188,15 +250,15 @@
 
           <div class="row gy-5">
 
-            @foreach ($starter as $item)
+            @foreach ($dinner as $item)
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
-                <p class="ingredients">
+                <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
                 </p>
                 <p class="price">
-                  Rp. {{$item['harga']}},00
+                  Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
               </div>
             @endforeach<!-- Menu Item -->
@@ -224,6 +286,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/extention/choices.js"></script>
 </body>
 
 </html>

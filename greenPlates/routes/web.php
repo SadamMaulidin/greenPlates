@@ -33,9 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/menu', [ProdukController::class, 'starter']);
-// Route::get('/menu', [ProdukController::class, 'lunch']);
-// Route::get('/menu', [ProdukController::class, 'breakfast']);
-// Route::get('/menu', [ProdukController::class, 'dinner']);
+Route::get('/menu', [ProdukController::class, 'index']);
+Route::get('/search', [ProdukController::class, 'search']);
+
 
 require __DIR__.'/auth.php';
