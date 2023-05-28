@@ -94,7 +94,7 @@
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
           <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <p data-aos="fade-up" data-aos-delay="100">Dengan makan banyak buah dan sayuran menggantikan makanan cepat saji dapat menjaga tubuh tetap sehat.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#login" class="btn-login">Login</a>
             <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -121,15 +121,14 @@
         <div class="row gy-4">
           <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
             <div class="call-us position-absolute">
-              <h4>Book a Table</h4>
-              <p>+1 5589 55488 55</p>
+              <h4>Questions and Help</h4>
+              <p>275 - 910 - 872</p>
             </div>
           </div>
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+              GreenPlates didirikan pada tahun 2023 di Kota Semarang, Indonesia. Kami ingin mengajak masyarakat untuk mengembangkan kebiasaan makan makanan sehat. Untuk menjaga kesehatan tubuh, salah satu hal yang harus diperhatikan tentunya asupan yang akan masuk ke dalam tubuh kita.
               </p>
               <ul>
                 <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
@@ -946,7 +945,7 @@
               <i class="icon bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>contact@example.com</p>
+                <p>helpercontact@greenplates.co.id</p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -956,7 +955,7 @@
               <i class="icon bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <p>275 - 910 - 872</p>
               </div>
             </div>
           </div><!-- End Info Item -->
