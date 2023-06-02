@@ -5,10 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produk extends Model
+class Pesanan extends Model
 {
-    protected $table = 'produks';
-    // $stater = Produk::where('id_kategori', 1)->get();
+    use HasFactory;
+    public function user()
+    {
+        return $this->beLongTo('App\Models\User', 'id_user', 'id');
+    }
+
     public function pesanan_detail()
     {
         return $this->hasMany('App\Models\PesananDetail', 'id_pesanan', 'id');
