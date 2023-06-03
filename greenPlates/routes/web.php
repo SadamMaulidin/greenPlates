@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,15 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/menu', [ProdukController::class, 'index']);
 Route::get('/search', [ProdukController::class, 'search']);
+Route::get('/pesanan/{id}', [ProdukController::class, 'pesanan'])->name('pesanan');
+Route::post('/pesanan/{id}', [ProdukController::class, 'pesan'])->name('pesan');
+Route::get('/co', [ProdukController::class, 'co'])->name('co');
+Route::delete('/co/{id}', [ProdukController::class, 'delete'])->name('delete');
+Route::get('/konfirmasi-co', [ProdukController::class, 'konfirmasi'])->name('konfirmasi');
+
+Route::get('/history', [ProdukController::class, 'history'])->name('history');
+Route::get('/history/{id}', [ProdukController::class, 'detail'])->name('detail');
+
 
 
 require __DIR__.'/auth.php';
