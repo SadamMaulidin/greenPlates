@@ -32,7 +32,6 @@
 
     <h1 class="welcome-title">Welcome!</h1>
     <p class="sub-title">Masukkan email dan kata sandi Anda untuk masuk</p><br>
-
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
