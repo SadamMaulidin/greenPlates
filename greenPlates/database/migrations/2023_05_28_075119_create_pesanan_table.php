@@ -15,12 +15,16 @@ return new class extends Migration
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
-            $table->string('status_pemesanan');
+            $table->enum('status', ['Process', 'Shipping', 'Accepted'])->default('Process');
             $table->time('estimasi');
             $table->timestamp('waktu_pemesanan');
             $table->string('alamat_tujuan');
             $table->unsignedBigInteger('id_produk');
-            $table->foreign('id_produk')->references('id')->on('produk');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_produk')
+                  ->references('id')->on('produks')->onDelete('cascade');
+            $table->foreign('id_user')
+                  ->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

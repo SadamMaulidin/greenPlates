@@ -904,8 +904,11 @@ section {
 }
 
 .menu .tab-content .menu-item .menu-img {
-  padding: 0 60px;
+  /* padding: 0 60px; */
+  margin: 0 60px;
   margin-bottom: 15px;
+  height: 250px;
+  width: 250px;
 }
 
 .menu .tab-content .menu-item h4 {
