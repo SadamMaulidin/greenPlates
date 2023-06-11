@@ -71,20 +71,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/dashboard">Home</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="/menu">Menu</a></li>
-          {{-- <li><a href="#events">Events</a></li> --}}
-          {{-- <li><a href="#chefs">Chefs</a></li> --}}
-          {{-- <li><a href="#gallery">Gallery</a></li> --}}
-          {{-- <li class="dropdown"><a><span>Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#menu-starters">Starters</a></li>
-              <li><a data-bs-target="#menu-breakfast">Breakfast</a></li>
-              <li><a href="#menu-lunch">Lunch</a></li>
-              <li><a href="#menu-dinner">Dinner</a></li>
-            </ul>
-          </li> --}}
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
           <x-dropdown-link :href="route('profile.edit')">
             {{ __('Profile') }}
           </x-dropdown-link>
@@ -160,24 +149,24 @@
         
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters">
-            <h4>Starters</h4>
+            <h4>Diet</h4>
           </a>
         </li><!-- End tab nav item -->
 
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-            <h4>Breakfast</h4>
+            <h4>Rendah Karbo</h4>
           </a><!-- End tab nav item -->
 
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-            <h4>Lunch</h4>
+            <h4>Vegan</h4>
           </a>
         </li><!-- End tab nav item -->
 
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-            <h4>Dinner</h4>
+            <h4>Bebas Gluten</h4>
           </a>
         </li><!-- End tab nav item -->
 
@@ -215,7 +204,7 @@
 
           <div class="tab-header text-center">
             <p>Menu</p>
-            <h3>Starters</h3>
+            <h3>Diet</h3>
           </div>
 
           <div class="row gy-5">
@@ -240,7 +229,7 @@
 
           <div class="tab-header text-center">
             <p>Menu</p>
-            <h3>Breakfast</h3>
+            <h3>Rendah Karbo</h3>
           </div>
 
           <div class="row gy-5">
@@ -265,7 +254,7 @@
 
           <div class="tab-header text-center">
             <p>Menu</p>
-            <h3>Lunch</h3>
+            <h3>Vegan</h3>
           </div>
 
           <div class="row gy-5">
@@ -290,7 +279,7 @@
 
           <div class="tab-header text-center">
             <p>Menu</p>
-            <h3>Dinner</h3>
+            <h3>Bebas Gluten</h3>
           </div>
 
           <div class="row gy-5">
