@@ -71,20 +71,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/dashboard">Home</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="/menu">Menu</a></li>
-          {{-- <li><a href="#events">Events</a></li> --}}
-          {{-- <li><a href="#chefs">Chefs</a></li> --}}
-          {{-- <li><a href="#gallery">Gallery</a></li> --}}
-          {{-- <li class="dropdown"><a><span>Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#menu-diet">Starters</a></li>
-              <li><a data-bs-target="#menu-lowcarb">Breakfast</a></li>
-              <li><a href="#menu-vegan">Lunch</a></li>
-              <li><a href="#menu-glutenfree">Dinner</a></li>
-            </ul>
-          </li> --}}
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
           <x-dropdown-link :href="route('profile.edit')">
             {{ __('Profile') }}
           </x-dropdown-link>
@@ -159,7 +148,7 @@
         </li><!-- End tab nav item -->
         
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-diet">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters">
             <h4>Diet</h4>
           </a>
         </li><!-- End tab nav item -->
@@ -267,6 +256,7 @@
 
           <div class="tab-header text-center">
             <p>Menu</p>
+            <h3>Vegan</h3>
             <h3>Vegan</h3>
           </div>
 
