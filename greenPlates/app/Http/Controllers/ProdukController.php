@@ -159,5 +159,24 @@ class ProdukController extends Controller
 
         return view('detail', compact('pesanan', 'pesanan_detail'));
     }
+
+    // public function konfirmasiOrder($id)
+    // {
+    //     // $pesanan = Pesanan::all();
+    //     dd($id);
+    //     $pesanan = Pesanan::findOrFail($id);
+    //     $pesanan->status = 2;
+    //     $pesanan->update();
+
+    //     // $pesanan_detail = PesananDetail::where('id_pesanan', $id_pesanan)->get();
+    //     // foreach($pesanan_detail as $pesanan_detail)
+    //     // {
+    //     //     $produk = Produk::where('id', $pesanan_detail->id_produk)->first();
+    //     //     $produk->stok = $produk->stok-$pesanan_detail->jumlah;
+    //     //     $produk->update();
+    //     // }
+
+    //     return redirect('/admin/dashboard');
+    // }
 }
 

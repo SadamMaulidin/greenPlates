@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_produk');
             $table->text('ulasan');
             $table->integer('harga');
+            $table->integer('stok');
             $table->float('penilaian');
             $table->text('desk_produk');
             $table->string('foto_produk');

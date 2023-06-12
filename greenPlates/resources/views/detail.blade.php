@@ -58,7 +58,7 @@
 
 </style>
 <html lang="en">
-    <head>
+  <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
       
@@ -87,7 +87,7 @@
 
         <!-- <link href="assets/css/main.css" rel="stylesheet"> -->
 
-      </head>
+  </head>
 <body>
     <!-- ======= Header ======= -->
   <header id="header" class="header menu fixed-top d-flex align-items-center">
@@ -144,60 +144,65 @@
     </div>
   </header><!-- End Header -->
 
-  <main>
-    <div class="col-md-10 mx-auto">
-      <div class="card">
-        <div class="card-body">
-          <h3>Sukses Check Out</h3>
-          <h5>Pesanan anda berhasil di Check Out, untuk pembayaran selanjutnya silahkan transfer ke rekening 
-            <strong>Bank BRI Nomor Rekening : 1234-56789-123</strong> dengan nominal : <strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></h5>
+    <main>
+      <div class="col-md-10 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h3>Sukses Check Out</h3>
+            @if($pesanan->status == 3)
+              <h5>Pembayaran Berhasil, Pesanan anda sedang di Proses</h5>
+            @else
+              <h5>Pesanan anda berhasil di Check Out, untuk pembayaran selanjutnya silahkan transfer ke rekening 
+                <strong>Bank BRI Nomor Rekening : 1234-56789-123</strong> dengan nominal : <strong>Rp. {{ number_format($pesanan->jumlah_harga+$pesanan->kode) }}</strong>
+              </h5>
+            @endif
+          </div>
         </div>
+          <div class="card mt-2">
+              <div class="card-body">
+                  <h1>Detail Order</h1>
+                  @if(!empty($pesanan_detail))
+                  <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
+                  <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th>No</th>
+                              <th>Nama Produk</th>
+                              <th>Qty</th>
+                              <th>Harga</th>
+                              <th>Total Harga</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @php $no = 1; @endphp
+                          @foreach($pesanan_detail as $detail)
+                          <tr>
+                              <td>{{ $no++ }}</td>
+                              <td>{{ $detail->produk->nama_produk }}</td>
+                              <td>{{ $detail->jumlah }}</td>
+                              <td>Rp. {{ $detail->produk->harga }}</td>
+                              <td>Rp. {{ $detail->jumlah_harga }}</td>
+                          </tr>
+                          @endforeach
+                          <tr>
+                            <td colspan="4" align="right"><strong>Total Harga :</strong></td>
+                            <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" align="right"><strong>Kode Unik :</strong></td>
+                            <td><strong>{{ number_format($pesanan->kode) }}</strong></td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" align="right"><strong>Total yang harus dibayar :</strong></td>
+                            <td><strong>Rp. {{ number_format($pesanan->jumlah_harga+$pesanan->kode) }}</strong></td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  @endif
+              </div>
+          </div>
       </div>
-        <div class="card mt-2">
-            <div class="card-body">
-                <h1>Detail Order</h1>
-                @if(!empty($pesanan_detail))
-                <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Produk</th>
-                            <th>Jumlah</th>
-                            <th>Harga</th>
-                            <th>Total Harga</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php $no = 1; @endphp
-                        @foreach($pesanan_detail as $detail)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $detail->produk->nama_produk }}</td>
-                            <td>{{ $detail->jumlah }}</td>
-                            <td>Rp. {{ $detail->produk->harga }}</td>
-                            <td>Rp. {{ $detail->jumlah_harga }}</td>
-                        </tr>
-                        @endforeach
-                        <tr>
-                          <td colspan="4" align="right"><strong>Total Harga :</strong></td>
-                          <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
-                        </tr>
-                        <tr>
-                          <td colspan="4" align="right"><strong>Kode Unik :</strong></td>
-                          <td><strong>{{ number_format($pesanan->kode) }}</strong></td>
-                        </tr>
-                        <tr>
-                          <td colspan="4" align="right"><strong>Total yang harus dibayar</strong></td>
-                          <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                @endif
-            </div>
-        </div>
-    </div>
-  </main>
+    </main>
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -214,6 +219,6 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/extention/choices.js') }}"></script>
-    </body>
+</body>
 </html>
  

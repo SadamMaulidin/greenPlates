@@ -168,8 +168,10 @@
                       <td>
                         @if($pesanan->status == 1)
                         Sudah pesan & Belum dibayar
+                        @elseif($pesanan->status == 2)
+                        Menunggu Konfirmasi
                         @else
-                        Sudah dibayar
+                        Sedang Diproses
                         @endif
                       </td>
                       <td>Rp. {{ number_format($pesanan->jumlah_harga+$pesanan->kode) }}</td>

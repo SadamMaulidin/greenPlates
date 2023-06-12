@@ -30,7 +30,7 @@
             width: 100%;
         }
     </style>
-
+    
     <h1 class="welcome-title">Welcome Admins!</h1>
     <p class="sub-title">Masukkan Kode Admin dan kata sandi Anda untuk masuk</p><br>
 

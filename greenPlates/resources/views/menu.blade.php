@@ -196,7 +196,7 @@
 
             @foreach ($data_produk as $item)
               <div class="col-lg-4 menu-item">
-                <a href={{$item['foto_produk']}} class="glightbox"><img src={{$item['foto_produk']}} class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
                 <!-- <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
@@ -222,7 +222,7 @@
 
             @foreach ($starter as $item)
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
                 <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
@@ -230,6 +230,7 @@
                 <p class="price">
                   Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
+                <a href="{{ route('pesanan', ['id' => $item['id']]) }}" class="button-order">Order</a>
               </div>
             @endforeach<!-- Menu Item -->
 
@@ -247,7 +248,7 @@
 
             @foreach ($breakfast as $item)
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
                 <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
@@ -255,6 +256,7 @@
                 <p class="price">
                   Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
+                <a href="{{ route('pesanan', ['id' => $item['id']]) }}" class="button-order">Order</a>
               </div>
             @endforeach<!-- Menu Item -->
 
@@ -272,7 +274,7 @@
 
             @foreach ($lunch as $item)
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
                 <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
@@ -280,6 +282,7 @@
                 <p class="price">
                   Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
+                <a href="{{ route('pesanan', ['id' => $item['id']]) }}" class="button-order">Order</a>
               </div>
             @endforeach<!-- Menu Item -->
 
@@ -297,7 +300,7 @@
 
             @foreach ($dinner as $item)
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
                 <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
@@ -305,6 +308,7 @@
                 <p class="price">
                   Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
+                <a href="{{ route('pesanan', ['id' => $item['id']]) }}" class="button-order">Order</a>
               </div>
             @endforeach<!-- Menu Item -->
 
