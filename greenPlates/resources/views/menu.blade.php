@@ -73,7 +73,19 @@
           <li><a href="/dashboard">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="/menu">Menu</a></li>
-          <li><a href="#contact">Contact</a></li>
+          {{-- <li><a href="#events">Events</a></li> --}}
+          {{-- <li><a href="#chefs">Chefs</a></li> --}}
+          {{-- <li><a href="#gallery">Gallery</a></li> --}}
+          {{-- <li class="dropdown"><a><span>Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#menu-diet">Starters</a></li>
+              <li><a data-bs-target="#menu-lowcarb">Breakfast</a></li>
+              <li><a href="#menu-vegan">Lunch</a></li>
+              <li><a href="#menu-glutenfree">Dinner</a></li>
+            </ul>
+          </li> --}}
+          <li><a href="/contact">Contact</a></li>
+          
           <x-dropdown-link :href="route('profile.edit')">
             {{ __('Profile') }}
           </x-dropdown-link>
@@ -148,25 +160,25 @@
         </li><!-- End tab nav item -->
         
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-diet">
             <h4>Diet</h4>
           </a>
         </li><!-- End tab nav item -->
 
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-            <h4>Rendah Karbo</h4>
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lowcarb">
+            <h4>Low Carbo</h4>
           </a><!-- End tab nav item -->
 
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-vegan">
             <h4>Vegan</h4>
           </a>
         </li><!-- End tab nav item -->
 
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-            <h4>Bebas Gluten</h4>
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-glutenfree">
+            <h4>Glutten Free</h4>
           </a>
         </li><!-- End tab nav item -->
 
@@ -185,7 +197,7 @@
 
             @foreach ($data_produk as $item)
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href={{$item['foto_produk']}} class="glightbox"><img src={{$item['foto_produk']}} class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
                 <!-- <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
@@ -200,7 +212,7 @@
           </div>
         </div><!-- End Starter Menu Content -->
 
-        <div class="tab-pane fade" id="menu-starters">
+        <div class="tab-pane fade" id="menu-diet">
 
           <div class="tab-header text-center">
             <p>Menu</p>
@@ -225,11 +237,11 @@
           </div>
         </div><!-- End Starter Menu Content -->
 
-        <div class="tab-pane fade" id="menu-breakfast">
+        <div class="tab-pane fade" id="menu-lowcarb">
 
           <div class="tab-header text-center">
             <p>Menu</p>
-            <h3>Rendah Karbo</h3>
+            <h3>Low Carbo</h3>
           </div>
 
           <div class="row gy-5">
@@ -250,7 +262,7 @@
           </div>
         </div><!-- End Breakfast Menu Content -->
 
-        <div class="tab-pane fade" id="menu-lunch">
+        <div class="tab-pane fade" id="menu-vegan">
 
           <div class="tab-header text-center">
             <p>Menu</p>
@@ -275,11 +287,11 @@
           </div>
         </div><!-- End Lunch Menu Content -->
 
-        <div class="tab-pane fade" id="menu-dinner">
+        <div class="tab-pane fade" id="menu-glutenfree">
 
           <div class="tab-header text-center">
             <p>Menu</p>
-            <h3>Bebas Gluten</h3>
+            <h3>Glutten Free</h3>
           </div>
 
           <div class="row gy-5">

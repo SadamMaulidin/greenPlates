@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard_admin', function () {
+    return view('admin.dashboard-admin');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -33,6 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Route::get('/admin', function () {
+//     return view('admin.admin-login');
+// });
 
 Route::get('/menu', [ProdukController::class, 'index']);
 Route::get('/search', [ProdukController::class, 'search']);
@@ -46,5 +55,35 @@ Route::get('/history', [ProdukController::class, 'history'])->name('history');
 Route::get('/history/{id}', [ProdukController::class, 'detail'])->name('detail');
 
 
+Route::get('admin', function () { return view('admin.admin-dashboard'); })->middleware('checkRole:admin');
+Route::get('penjual', function () { return view('penjual'); })->middleware(['checkRole:kurir,admin']);
+Route::get('pembeli', function () { return view('dashboard'); })->middleware(['checkRole:customer,admin']);
+
+
+/*---------------Admin Route----------------*/
+
+Route::prefix('admin')->group(function(){
+    Route::get('/login', [AdminController::class, 'Index'])->name('login_form');
+    Route::post('/login/admin', [AdminController::class, 'Login'])->name('admin.login');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
+});
+
+Route::get('admin', function () { return view('admin.admin-dashboard'); })->middleware('checkRole:admin');
+Route::get('penjual', function () { return view('penjual'); })->middleware(['checkRole:kurir,admin']);
+Route::get('pembeli', function () { return view('dashboard'); })->middleware(['checkRole:customer,admin']);
+
+
+/*---------------Admin Route----------------*/
+
+Route::prefix('admin')->group(function(){
+    Route::get('/login', [AdminController::class, 'Index'])->name('login_form');
+    Route::post('/login/admin', [AdminController::class, 'Login'])->name('admin.login');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
+});
+
+
+/*---------------Admin Route----------------*/
+
+/*---------------Admin Route----------------*/
 
 require __DIR__.'/auth.php';
