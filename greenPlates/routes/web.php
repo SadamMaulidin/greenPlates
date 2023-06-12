@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +45,15 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/menu', [ProdukController::class, 'index']);
 Route::get('/search', [ProdukController::class, 'search']);
+Route::get('/pesanan/{id}', [ProdukController::class, 'pesanan'])->name('pesanan');
+Route::post('/pesanan/{id}', [ProdukController::class, 'pesan'])->name('pesan');
+Route::get('/co', [ProdukController::class, 'co'])->name('co');
+Route::delete('/co/{id}', [ProdukController::class, 'delete'])->name('delete');
+Route::get('/konfirmasi-co', [ProdukController::class, 'konfirmasi'])->name('konfirmasi');
+
+Route::get('/history', [ProdukController::class, 'history'])->name('history');
+Route::get('/history/{id}', [ProdukController::class, 'detail'])->name('detail');
+
 
 Route::get('admin', function () { return view('admin.admin-dashboard'); })->middleware('checkRole:admin');
 Route::get('penjual', function () { return view('penjual'); })->middleware(['checkRole:kurir,admin']);
@@ -58,6 +68,21 @@ Route::prefix('admin')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
 });
 
+Route::get('admin', function () { return view('admin.admin-dashboard'); })->middleware('checkRole:admin');
+Route::get('penjual', function () { return view('penjual'); })->middleware(['checkRole:kurir,admin']);
+Route::get('pembeli', function () { return view('dashboard'); })->middleware(['checkRole:customer,admin']);
+
+
+/*---------------Admin Route----------------*/
+
+Route::prefix('admin')->group(function(){
+    Route::get('/login', [AdminController::class, 'Index'])->name('login_form');
+    Route::post('/login/admin', [AdminController::class, 'Login'])->name('admin.login');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
+});
+
+
+/*---------------Admin Route----------------*/
 
 /*---------------Admin Route----------------*/
 

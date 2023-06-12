@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+    <style>
+      .button-order:hover {
+        color: black;
+      }
+      .button-order {
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: #54B435;
+        color: white;
+        height: 40px;
+        width: 100px;
+        margin-left: auto; 
+        margin-right: auto;
+        border-radius: 20px;
+        color: white;
+      }
+      .shopping-cart-icon {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) saturate(100%) invert(67%) sepia(0%) saturate(20%) hue-rotate(358deg) brightness(91%) contrast(87%);
+      }
+      .shopping-cart-icon:hover {
+        filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+      }
+      
+    </style>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -59,9 +88,24 @@
           <x-dropdown-link :href="route('profile.edit')">
             {{ __('Profile') }}
           </x-dropdown-link>
+          <li class="nav-item dropdown">
+            <?php
+            $pesanan_utama = \App\Models\Pesanan::where('id_user', Auth::user()->id)->where('status', 0)->first();
+            $notif = 0; // Inisialisasi nilai notif dengan 0
+            if ($pesanan_utama) {
+                $notif = \App\Models\PesananDetail::where('id_pesanan', $pesanan_utama->id)->count();
+            }
+            ?>
+            <a href="/co">
+                <img class="shopping-cart-icon nav-link dropdown-toggle" src="assets/img/shopping_cart.png" alt="">
+                <span class="badge badge-danger">{{ $notif }}</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="shoppingCartDropdown">
+                <li><a class="dropdown-item" href="/history">History Order</a></li>
+            </ul>
+          </li>
           <li><form method="POST" action="{{ route('logout') }}">
             @csrf
-
             <x-dropdown-link :href="route('logout')"
                     onclick="event.preventDefault();
                                 this.closest('form').submit();">
@@ -154,12 +198,13 @@
               <div class="col-lg-4 menu-item">
                 <a href={{$item['foto_produk']}} class="glightbox"><img src={{$item['foto_produk']}} class="menu-img img-fluid" alt=""></a>
                 <h4>{{$item['nama_produk']}}</h4>
-                <p class="ingredients menu-desk">
+                <!-- <p class="ingredients menu-desk">
                   {{$item['desk_produk']}}
-                </p>
+                </p> -->
                 <p class="price">
                   Rp. {{ number_format($item['harga'], 2, ',', '.') }}
                 </p>
+                <a href="{{ route('pesanan', ['id' => $item['id']]) }}" class="button-order">Order</a>
               </div>
             @endforeach<!-- Menu Item -->
 
